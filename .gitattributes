@@ -1,0 +1,22 @@
+# Force LF on files that run on the Linux server.
+# Windows commits these as CRLF by default, which breaks shell scripts and
+# compose entrypoints on Linux (errors like: /bin/sh^M: bad interpreter).
+# Also keeps stray carriage returns out of env values (keys, URLs).
+
+*.sh            text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+Dockerfile      text eol=lf
+dockerfile      text eol=lf
+*.env.example   text eol=lf
+
+# Binary assets: never touch line endings.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.mp4   binary
+*.woff  binary
+*.woff2 binary
